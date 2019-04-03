@@ -1,0 +1,15 @@
+.default {
+  color: purple;
+  padding: 5px;
+}
+
+.warning {
+  composes: default;
+  background-color: yellow;
+  color: black;
+}
+
+.error {
+  composes: warning;
+  color: red;
+}
