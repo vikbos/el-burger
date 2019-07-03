@@ -1,5 +1,5 @@
 import * as actionTypes from './constants';
-import axios from '../../axios-orders';
+// import axios from '../../axios-orders';
 
 export const addIngredient = (type) => {
   return {
@@ -29,16 +29,23 @@ export const fetchIngredientsFailed = () => {
 }
 
 export const initIngredients = () => {
-  return dispatch => {
-    axios.get('https://el-burger.firebaseio.com/ingredients.json')
-    .then(response => {
-      dispatch(setIngredients(response.data))
-    })
-    .catch(error => {
-      dispatch(fetchIngredientsFailed())
-    })
+  return {
+    type: actionTypes.INIT_INGREDIENTS
   }
 }
+
+// THUNK MIDDLEWARE
+// export const initIngredients = () => {
+//   return dispatch => {
+//     axios.get('https://el-burger.firebaseio.com/ingredients.json')
+//     .then(response => {
+//       dispatch(setIngredients(response.data))
+//     })
+//     .catch(error => {
+//       dispatch(fetchIngredientsFailed())
+//     })
+//   }
+// }
 
 export const resetIngredient = (type) => {
   return {
